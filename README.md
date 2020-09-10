@@ -1,5 +1,7 @@
 # CUDA Applications
 
+![NVIDIA](https://user-images.githubusercontent.com/21957723/92670657-582e5080-f2c9-11ea-86fc-ebe904886246.jpeg)
+
 CUDA Applications
 
 This alwaysAI application set use a CUDA (Compute Unified Device Architecture) interface which allows CNN models to execute on  NVIDIA  GPUs found on Jetson devices.  CUDA APIs give applications executing on the CPU direct access to NVIDIA’s GPU’s virtual instruction set and parallel computational elements.
