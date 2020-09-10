@@ -8,7 +8,9 @@ This alwaysAI application set use a CUDA (Compute Unified Device Architecture) i
 
 ![CUDA_processing_flow](https://user-images.githubusercontent.com/21957723/92669825-7b580080-f2c7-11ea-9c80-4e3a10155b2d.png)
 
-The application set covers all major CNN types like classification, object detection, semantic segmentation and instance segmentation.## Repo Programs
+The application set covers all major CNN types like classification, object detection, semantic segmentation and instance segmentation.
+
+## Repo Programs
 | Folder                     	| Description                                                                                              	|
 |----------------------------	|----------------------------------------------------------------------------------------------------------	|
 | bottle-classifier   | Program use googlenet classifier to find water bottles|
