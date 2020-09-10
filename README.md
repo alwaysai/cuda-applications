@@ -1,6 +1,17 @@
 # CUDA Applications
 
-This alwaysAI app performs semantic segmentation on a video clip of a driving scene on NVIDIA Jetson devices.
+CUDA Applications
+
+This alwaysAI application set use a CUDA (Compute Unified Device Architecture) interface which allows CNN models to execute on  NVIDIA  GPUs found on Jetson devices.  CUDA APIs give applications executing on the CPU direct access to NVIDIA’s GPU’s virtual instruction set and parallel computational elements.
+
+The application set covers all major CNN types like classification, object detection, semantic segmentation and instance segmentation.## Repo Programs
+| Folder                     	| Description                                                                                              	|
+|----------------------------	|----------------------------------------------------------------------------------------------------------	|
+| bottle-classifier   | Program use googlenet classifier to find water bottles|
+| bottle-detector 	  | Program uses tiny-yolo3 object detection network to find water bottles|
+| bottle-segmentation | Program uses fcn semantic segmentation to find water bottles|
+| bottle-instance     | Program uses instance segmentation to find water bottles|
+| autonomous-vechicle | Program demostartes how semantic segmentation is used in autonomous car applications|
 
 ## Setup
 
