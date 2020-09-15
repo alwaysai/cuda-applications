@@ -25,7 +25,7 @@ def main():
     print("load mask rcnn model and set CUDA backend")
     net = cv2.dnn.readNetFromTensorflow(weightsPath, configPath)
     net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
-    net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA_FP16)
+    net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
     print("mask rcnn loaded sucessfully")
 
     fps = edgeiq.FPS()

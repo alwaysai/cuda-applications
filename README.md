@@ -11,6 +11,7 @@ The application set covers all major CNN types like classification, object detec
 | bottle-detector 	  | Program uses tiny-yolo3 object detection network to find water bottles|
 | bottle-segmentation | Program uses fcn semantic segmentation to find water bottles|
 | bottle-instance     | Program uses instance segmentation to find water bottles|
+| csi-camera          | Program uses csi camera using object detectionto find water bottles|
 | autonomous-vechicle | Program demostartes how semantic segmentation is used in autonomous car applications|
 
 ## Setup

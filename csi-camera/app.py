@@ -3,7 +3,10 @@ import time
 import datetime
 import edgeiq
 """
-Detect bottles and count them
+Application detects bottles and counts them.  Application use the Nano's CSI
+camera interface JetsonVideoStream.  Information about JetsonVideoStream can be
+found in alwaysai documentation at this address:
+https://alwaysai.co/docs/edgeiq_api/video_stream.html#edgeiq.edge_tools.JetsonVideoStream
 """
 
 OBJECT = ["bottle"]
@@ -22,7 +25,7 @@ def main():
     fps = edgeiq.FPS()
 
     try:
-        with edgeiq.WebcamVideoStream(cam=0) as video_stream, \
+        with edgeiq.JetsonVideoStream(cam=0) as video_stream, \
                 edgeiq.Streamer() as streamer:
             # Allow Webcam to warm up
             time.sleep(2.0)

@@ -8,7 +8,7 @@ import numpy as np
 
 def main():
     semantic_segmentation = edgeiq.SemanticSegmentation("alwaysai/fcn_resnet18_pascal_voc_512x320")
-    semantic_segmentation.load(engine=edgeiq.Engine.DNN_CUDA, accelerator=edgeiq.Accelerator.NVIDIA_FP16)
+    semantic_segmentation.load(engine=edgeiq.Engine.DNN_CUDA, accelerator=edgeiq.Accelerator.NVIDIA)
 
     print("Loaded model:\n{}\n".format(semantic_segmentation.model_id))
     print("Engine: {}".format(semantic_segmentation.engine))

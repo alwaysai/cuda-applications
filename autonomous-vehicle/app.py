@@ -11,13 +11,15 @@ https://dashboard.alwaysai.co/docs/application_development/changing_the_model.ht
 
 To change the engine and accelerator, follow this guide:
 https://dashboard.alwaysai.co/docs/application_development/changing_the_engine_and_accelerator.html
+
+To install app dependencies in the runtime container, list them in the requirements.txt file.
 """
 
 
 def main():
     semantic_segmentation = edgeiq.SemanticSegmentation("alwaysai/enet")
+    # Note: alwaysai/enet doesn't work with NVIDIA_FP16 optimization
     semantic_segmentation.load(engine=edgeiq.Engine.DNN_CUDA)
-
     print("Loaded model:\n{}\n".format(semantic_segmentation.model_id))
     print("Engine: {}".format(semantic_segmentation.engine))
     print("Accelerator: {}\n".format(semantic_segmentation.accelerator))
@@ -28,8 +30,6 @@ def main():
     try:
         with edgeiq.FileVideoStream('toronto.mp4', play_realtime=True) as video_stream, \
                 edgeiq.Streamer() as streamer:  # play_realtime simulates video feed from a camera
-            # Allow Webcam to warm up
-            time.sleep(2.0)
             fps.start()
 
             # loop detection
@@ -44,7 +44,7 @@ def main():
                 text.append(semantic_segmentation.build_legend())
 
                 mask = semantic_segmentation.build_image_mask(results.class_map)
-                blended = edgeiq.blend_images(frame, mask, alpha=0.7)
+                blended = edgeiq.blend_images(frame, mask, alpha=0.5)
 
                 streamer.send_data(blended, text)
 

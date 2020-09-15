@@ -8,7 +8,7 @@ Real time classifier used to detect water bottles
 
 def main():
     classifier = edgeiq.Classification("alwaysai/googlenet")
-    classifier.load(engine=edgeiq.Engine.DNN_CUDA, accelerator=edgeiq.Accelerator.NVIDIA_FP16)
+    classifier.load(engine=edgeiq.Engine.DNN_CUDA, accelerator=edgeiq.Accelerator.NVIDIA)
 
     print("Engine: {}".format(classifier.engine))
     print("Accelerator: {}\n".format(classifier.accelerator))
