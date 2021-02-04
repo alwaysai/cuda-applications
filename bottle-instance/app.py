@@ -4,13 +4,16 @@ import cv2
 import numpy as np
 import os
 """
-Instance segmenataiom used to count unique instances of water bottles
+Instance segmenataiom application used to count unique instances of bottles.
+Instance Segmenataiom is currently not part of the alwaysai API's or Model Catalog.
+This application demostartes how to implement instance segmenataiom using the
+alwaysai platform.  
 """
 
 
 def main():
     print("get labels")
-    labelsPath = "models/object_detection_classes_coco.txt"
+    labelsPath = "instances_models/object_detection_classes_coco.txt"
     LABELS = open(labelsPath).read().strip().split("\n")
 
     print("create colors")
@@ -19,8 +22,8 @@ def main():
     	dtype="uint8")
 
     # set paths to the Mask R-CNN model and configuration
-    weightsPath = "models/frozen_inference_graph.pb"
-    configPath = "models/mask_rcnn_inception_v2_coco_2018_01_28.pbtxt"
+    weightsPath = "instances_models/frozen_inference_graph.pb"
+    configPath = "instances_models/mask_rcnn_inception_v2_coco_2018_01_28.pbtxt"
 
     print("load mask rcnn model and set CUDA backend")
     net = cv2.dnn.readNetFromTensorflow(weightsPath, configPath)

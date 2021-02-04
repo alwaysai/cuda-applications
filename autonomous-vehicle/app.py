@@ -3,8 +3,7 @@ import edgeiq
 """
 Use semantic segmentation to determine a class for each pixel of an image.
 The classes of objects detected can be changed by selecting different models.
-This particular starter application uses a model trained on the Pascal VOC dataset
-(http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html).
+This particular starter application uses a model trained on cityscapes dataset
 
 To change the computer vision model, follow this guide:
 https://dashboard.alwaysai.co/docs/application_development/changing_the_model.html
@@ -17,7 +16,7 @@ To install app dependencies in the runtime container, list them in the requireme
 
 
 def main():
-    semantic_segmentation = edgeiq.SemanticSegmentation("alwaysai/enet")
+    semantic_segmentation = edgeiq.SemanticSegmentation("alwaysai/fcn_resnet18_cityscapes_512x256")
     # Note: alwaysai/enet doesn't work with NVIDIA_FP16 optimization
     semantic_segmentation.load(engine=edgeiq.Engine.DNN_CUDA)
     print("Loaded model:\n{}\n".format(semantic_segmentation.model_id))

@@ -11,12 +11,12 @@ The application set covers all major CNN types like classification, object detec
 ## Repo Programs
 | Folder                     	| Description                                                                                              	|
 |----------------------------	|----------------------------------------------------------------------------------------------------------	|
-| bottle-classifier   | Program use googlenet classifier to find water bottles|
-| bottle-detector 	  | Program uses tiny-yolo3 object detection network to find water bottles|
-| bottle-segmentation | Program uses fcn semantic segmentation to find water bottles|
-| bottle-instance     | Program uses instance segmentation to find water bottles|
-| csi-camera          | Program uses csi camera using object detectionto find water bottles|
-| autonomous-vechicle | Program demostartes how semantic segmentation is used in autonomous car applications|
+| bottle-classifier   | Program use classifier to find water bottles|
+| bottle-detector 	  | Program uses object detection network to find bottles|
+| bottle-segmentation | Program uses semantic segmentation to find bottles|
+| bottle-instance     | Program uses instance segmentation to find bottles|
+| csi-camera          | Program uses csi camera using object detection to find bottles|
+| autonomous-vechicle | Program shows semantic segmentation how it might be used in autonomous car application|
 
 ## Setup
 

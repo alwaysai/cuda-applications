@@ -2,7 +2,9 @@ import time
 import edgeiq
 import cv2
 """
-Real time classifier used to detect water bottles
+Real time classifier used to detect water bottles.  You can change the object
+you want to detect and count by altering the object label on line 41. Information
+for Classification APIs can found here https://alwaysai.co/docs/edgeiq_api/image_classification.html
 """
 
 

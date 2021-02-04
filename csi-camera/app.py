@@ -7,13 +7,15 @@ Application detects bottles and counts them.  Application use the Nano's CSI
 camera interface JetsonVideoStream.  Information about JetsonVideoStream can be
 found in alwaysai documentation at this address:
 https://alwaysai.co/docs/edgeiq_api/video_stream.html#edgeiq.edge_tools.JetsonVideoStream
+Information on the Object Detection API found in alwaysai documentation at this address:
+https://alwaysai.co/docs/edgeiq_api/object_detection.html
+You can change the detected object(s) by altering OBJECT list found on line 15.
 """
 
 OBJECT = ["bottle"]
 
-
 def main():
-    obj_detect = edgeiq.ObjectDetection("alwaysai/yolo_v3_tiny")
+    obj_detect = edgeiq.ObjectDetection("alwaysai/ssd_mobilenet_v1_coco_2018_01_28")
     obj_detect.load(engine=edgeiq.Engine.DNN_CUDA, accelerator=edgeiq.Accelerator.NVIDIA)
 
     print("Engine: {}".format(obj_detect.engine))

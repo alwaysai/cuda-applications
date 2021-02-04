@@ -2,7 +2,10 @@ import time
 import edgeiq
 import numpy as np
 """
-
+Real time semantic segmentation application used to detect bottles.  You can change
+the object you want to detect by changing filtering in the build_object_map method
+by altering the class list name(s) found on line 23.  Information for Semantic
+Segmentation APIs can found here https://alwaysai.co/docs/edgeiq_api/semantic_segmentation.html
 """
 
 
@@ -44,7 +47,7 @@ def main():
                 text.append("Legend:")
                 text.append(semantic_segmentation.build_legend())
 
-                blended = edgeiq.blend_images(frame, object_mask, alpha=0.8)
+                blended = edgeiq.blend_images(frame, object_mask, alpha=0.5)
 
                 streamer.send_data(blended, text)
 
