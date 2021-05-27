@@ -3,16 +3,13 @@ import time
 import datetime
 import edgeiq
 """
-Application detects bottles and counts them.  Application use the Nano's CSI
-camera interface JetsonVideoStream.  Information about JetsonVideoStream can be
-found in alwaysai documentation at this address:
+Application use the Nano's CSI camera interface JetsonVideoStream.
+Information about JetsonVideoStream can befound in alwaysai documentation at this address:
 https://alwaysai.co/docs/edgeiq_api/video_stream.html#edgeiq.edge_tools.JetsonVideoStream
 Information on the Object Detection API found in alwaysai documentation at this address:
 https://alwaysai.co/docs/edgeiq_api/object_detection.html
 You can change the detected object(s) by altering OBJECT list found on line 15.
 """
-
-OBJECT = ["bottle"]
 
 def main():
     obj_detect = edgeiq.ObjectDetection("alwaysai/ssd_mobilenet_v1_coco_2018_01_28")
@@ -22,7 +19,6 @@ def main():
     print("Accelerator: {}\n".format(obj_detect.accelerator))
     print("Model:\n{}\n".format(obj_detect.model_id))
     print("Labels:\n{}\n".format(obj_detect.labels))
-    print("Detecting:\n{}\n".format(OBJECT))
 
     fps = edgeiq.FPS()
 
@@ -38,10 +34,8 @@ def main():
                 frame = video_stream.read()
                 frame = edgeiq.resize(frame, width=416)
                 results = obj_detect.detect_objects(frame, confidence_level=.5)
-                predictions = edgeiq.filter_predictions_by_label(
-                        results.predictions, OBJECT)
                 frame = edgeiq.markup_image(
-                        frame, predictions, show_confidences=False,
+                        frame, results.predictions, show_confidences=False,
                         colors=obj_detect.colors)
 
                 # Print date and time on frame
@@ -51,21 +45,15 @@ def main():
                         frame, current_time_date, (10, h - 5),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
-                # Count OBJECT
-                counter = {obj: 0 for obj in OBJECT}
-
-                for prediction in predictions:
-                    # increment the counter of the detected object
-                    counter[prediction.label] += 1
-
                 # Generate text to display on streamer
                 text = ["Model: {}".format(obj_detect.model_id)]
                 text.append(
                         "Inference time: {:1.3f} s".format(results.duration))
-                text.append("Object counts:")
+                text.append("Objects:")
 
-                for label, count in counter.items():
-                    text.append("{}: {}".format(label, count))
+                for prediction in results.predictions:
+                    text.append("{}: {:2.2f}%".format(
+                    prediction.label, prediction.confidence * 100))
 
                 streamer.send_data(frame, text)
 
