@@ -1,6 +1,6 @@
 {
   "models": {
-    "alwaysai/googlenet": 7
+    "alwaysai/googlenet": 8
   },
   "scripts": {
     "start": "python app.py"

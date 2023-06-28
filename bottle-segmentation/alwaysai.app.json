@@ -1,6 +1,6 @@
 {
   "models": {
-    "alwaysai/fcn_resnet18_pascal_voc_512x320": 1
+    "alwaysai/fcn_resnet18_pascal_voc_512x320": 2
   },
   "scripts": {
     "start": "python app.py"

@@ -1,6 +1,6 @@
 {
   "models": {
-    "alwaysai/fcn_resnet18_cityscapes_512x256": 1
+    "alwaysai/fcn_resnet18_cityscapes_512x256": 2
   },
   "scripts": {
     "start": "python app.py"
